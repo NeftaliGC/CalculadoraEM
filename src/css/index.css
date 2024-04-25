@@ -1,9 +1,12 @@
+body {
+    margin: 0;
+}
+
 header {
     background-color: #60866D;
     color: #fff;
-    padding: 10px;
+    padding: 10px 20px;
 }
-
 
 #logo {
     padding: auto;
@@ -14,5 +17,34 @@ header {
     margin: 1px;
     width: max-content;
     text-align: center;
-    
+    display: inline-block;
+}
+
+#nav {
+    float: right;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    align-items: right;
+}
+
+#nav ul {
+    justify-content: flex-end;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+#nav ul li:first-child {
+    margin-left: 0;
+}
+
+#nav ul li a {
+    text-decoration: none;
+    color: #333;
 }
