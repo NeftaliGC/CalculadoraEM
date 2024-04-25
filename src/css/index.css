@@ -1,0 +1,18 @@
+header {
+    background-color: #60866D;
+    color: #fff;
+    padding: 10px;
+}
+
+
+#logo {
+    padding: auto;
+    margin: 3px;
+}
+
+#uaemex {
+    margin: 1px;
+    width: max-content;
+    text-align: center;
+    
+}
