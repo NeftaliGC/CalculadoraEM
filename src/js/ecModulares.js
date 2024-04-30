@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 nums.push(parseInt(document.getElementById(`numero${i}`).value));
             }
             console.log(nums);
-            if (nums.every(num => Number.isInteger(num) && num > 0) ) {
+            if (nums.every(num => Number.isInteger(num) && num >= 0) ) {
                 let coeficientes = [nums[0], nums[3], nums[6]];
                 console.log(coeficientes);
                 let numeros = [nums[1], nums[4], nums[7]];
