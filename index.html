@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ecuaciones Modulares</title>
+        
         <link rel="stylesheet" href="./src/css/index.css">
     </head>
     <body>
@@ -36,28 +37,28 @@
             <h1 id="tprincipal">Calculadora de Ecuaciones Modulares</h1>
             <section id="formEc">
                 <form id="rEqSistemForm">
-                    <input type="number" id="numero1" name="numero1" required>
+                    <input type="number" id="numero1" name="numero1" min="0" value="1" required>
                     <label for="numero1">X</label>
                     <label for="numero2">≡</label>
-                    <input type="number" id="numero2" name="numero2" required>
+                    <input type="number" id="numero2" name="numero2" min="0" value="2" required>
                     <label for="numero3">(MOD </label>
-                    <input type="number" id="numero3" name="numero3" required>
+                    <input type="number" id="numero3" name="numero3" min="0" value="3" required>
                     <label for="numero3"> )</label>
                     <br/>
-                    <input type="number" id="numero4" name="numero1" required>
+                    <input type="number" id="numero4" name="numero1" min="0" value="1" required>
                     <label for="numero1">X</label>
                     <label for="numero2">≡</label>
-                    <input type="number" id="numero5" name="numero2" required>
+                    <input type="number" id="numero5" name="numero2" min="0" value="3" required>
                     <label for="numero3">(MOD </label>
-                    <input type="number" id="numero6" name="numero3" required>
+                    <input type="number" id="numero6" name="numero3" min="0" value="5" required>
                     <label for="numero3"> )</label>
                     <br/>
-                    <input type="number" id="numero7" name="numero1" required>
+                    <input type="number" id="numero7" name="numero1" min="0" value="1" required>
                     <label for="numero1">X</label>
                     <label for="numero2">≡</label>
-                    <input type="number" id="numero8" name="numero2" required>
+                    <input type="number" id="numero8" name="numero2" min="0" value="2" required>
                     <label for="numero3">(MOD </label>
-                    <input type="number" id="numero9" name="numero3" required>
+                    <input type="number" id="numero9" name="numero3" min="0" value="7" required>
                     <label for="numero3"> )</label>
                     <div id="buttonSubmit">
                         <button class="button" id="submit">Calcular</button>
@@ -95,8 +96,32 @@
             </section>
             <section id="como-funciona">
                 <h3>¿Cómo funciona?</h3>
+                <p>
+                    Esta Calculadora funciona en base al teorema chino del residuo, el cual establece que si tenemos un sistema de congruencias lineales, es posible encontrar una solución única módulo el producto de los módulos de las congruencias.
+                    <br>
+                    Para resolver un sistema de congruencias lineales, primero se deben encontrar las soluciones de cada congruencia por separado.
+                    <br>
+                    Luego, se deben combinar las soluciones de las congruencias para obtener la solución del sistema.
+                    <br>
+                    Para encontrar la solución de una congruencia lineal, se puede utilizar el algoritmo de Euclides extendido.
+                    <br>
+                    Este algoritmo permite encontrar el inverso multiplicativo de un número módulo otro número.
+                    <br>
+                    Una vez que se han encontrado las soluciones de las congruencias, se pueden combinar para obtener la solución del sistema.
+                    <br>
+                    <strong>Ejemplo</strong>
+                    <br>
+                    Supongamos que tenemos el siguiente sistema de congruencias:
+                    <br>
+                    x ≡ 2 (mod 3)
+                    <br>
+                    x ≡ 3 (mod 5)
+                    <br>
+                    x ≡ 2 (mod 7)
+                    <br>
+                    
+                </p>
                 
-
             </section>
 
         </main>

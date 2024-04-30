@@ -34,7 +34,6 @@ main {
     margin: 0;
     padding: 3rem;
     text-align: center;
-
 }
 
 #buttonSubmit {
@@ -45,7 +44,8 @@ main {
 #logo {
     padding: auto;
     margin: 3px;
-    
+    width: 50;
+    height: 50;
 }
 
 #uaem {
@@ -53,7 +53,6 @@ main {
 }
 
 #uni {
-    margin: 0;
     width: max-content;
     text-align: left;
     display: inline-block;
@@ -66,18 +65,19 @@ main {
 }
 
 #nav {
-    float: right;
     width: auto;
     margin-top: 2rem;
     margin-bottom: 2rem;
     padding: 1rem;
     align-items: right;
+    display: contents;
 }
 
 #nav ul {
     justify-content: flex-end;
     list-style-type: none;
     margin: 0;
+    padding: 2rem;
 }
 
 #nav ul li {
@@ -107,6 +107,16 @@ main {
     border-radius: 10px;
 }
 
+#per li:first-child {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+#per li:last-child {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
 #per {
     padding-left: 0;
 }
@@ -122,4 +132,20 @@ footer p {
     margin: 0;
     padding: 0;
 
+}
+
+input[type="number"] {
+    width: 10%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+#res {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
 }

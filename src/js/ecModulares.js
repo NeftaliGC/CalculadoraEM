@@ -3,30 +3,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const $ = selector => document.querySelector(selector);
     const $rEqModulares = $('#rEqSistemForm')
     const $resolveZone = $('#res')
+    let numEcuaciones = 3;
 
-    $rEqModulares.addEventListener('click', () => {
+    $rEqModulares.addEventListener('submit', (event) => {
 
-        rEqSistemForm.addEventListener('submit', (event) => {
-            event.preventDefault(); // Evitar que se recargue la página
-            const numero1 = parseInt(document.getElementById('numero1').value);
-            const numero2 = parseInt(document.getElementById('numero2').value);
-            const numero3 = parseInt(document.getElementById('numero3').value);
-            const numero4 = parseInt(document.getElementById('numero4').value);
-            const numero5 = parseInt(document.getElementById('numero5').value);
-            const numero6 = parseInt(document.getElementById('numero6').value);
-            const numero7 = parseInt(document.getElementById('numero7').value);
-            const numero8 = parseInt(document.getElementById('numero8').value);
-            const numero9 = parseInt(document.getElementById('numero9').value);
-
-            if (Number.isInteger(numero1) && Number.isInteger(numero2) && Number.isInteger(numero3) && numero1 >= 0 && numero2 >= 0 && numero3 >= 0
-                && Number.isInteger(numero4) && Number.isInteger(numero5) && Number.isInteger(numero6) && numero4 >= 0 && numero5 >= 0 && numero6 >= 0
-                && Number.isInteger(numero7) && Number.isInteger(numero8) && Number.isInteger(numero9) && numero7 >= 0 && numero8 >= 0 && numero9 >= 0    
-            ) {
-                let coeficientes = [numero1, numero4, numero7];
+        
+        $resolveZone.innerHTML = '';
+        event.returnValue = false
+            let nums = [];
+            for (let i = 1; i <= numEcuaciones * 3; i++) {
+                nums.push(parseInt(document.getElementById(`numero${i}`).value));
+            }
+            console.log(nums);
+            if (nums.every(num => Number.isInteger(num) && num > 0) ) {
+                let coeficientes = [nums[0], nums[3], nums[6]];
                 console.log(coeficientes);
-                let numeros = [numero2, numero5, numero8];
+                let numeros = [nums[1], nums[4], nums[7]];
                 console.log(numeros);
-                let modulos = [numero3, numero6, numero9];
+                let modulos = [nums[2], nums[5], nums[8]];
                 console.log(modulos);
 
                 // Calcular el rEqModulares y mostrar el resultado
@@ -36,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 $resolveZone.innerHTML = 'Ingresa números enteros positivos válidos.';
             }
-        });
 
     });
 
@@ -67,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("Coeficientes:" + cof);
             console.log("Numeros:" + num);
             console.log("Modulos:" + mod);
+            $resolveZone.innerHTML += `Ecuaciones Simplificadas:<br/>`;
             for (let i = 0; i < cof.length; i++) {
                 $resolveZone.innerHTML += `${cof[i]}X ≡ ${num[i]} (MOD ${mod[i]})<br/>`;
             }
@@ -122,12 +116,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 } */
             }
             console.log("Ya llegue aqui");
+            $resolveZone.innerHTML += `Datos para el teorema chino del residuo:<br/>`;
             $resolveZone.innerHTML += `N = ${n}<br/> Q1 = ${q[0]}, Q2 = ${q[1]}, Q3 = ${q[2]}<br/> r1 = ${r[0]}, r2 = ${r[1]}, r3 = ${r[2]}<br/>`;
 
             let x = num[0] * q[0] * r[0] + num[1] * q[1] * r[1] + num[2] * q[2] * r[2];
             let resto = x % n;
-
-            $resolveZone.innerHTML += `X ≡ ${resto}(MOD ${n})<br/> Solucion general: X = K·${n} + ${resto}<br/>`;
+            
+            $resolveZone.innerHTML += `Solucion particular: X ≡ ${resto}(MOD ${n})<br/>`;
+            $resolveZone.innerHTML += `Solucion general: X = K·${n} + ${resto}<br/>`;
             
             
         } else {
@@ -151,15 +147,13 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(cof);
             for (let i = 0; i < cof.length; i++) {
                 $resolveZone.innerHTML += `${cof[i]}X ≡ ${num[i]} (MOD ${mod[i]})<br/>`;
-                
-                
             }
             $resolveZone.innerHTML += `N = ${n}<br/> Q1 = ${q[0]}, Q2 = ${q[1]}, Q3 = ${q[2]}<br/> r1 = ${r[0]}, r2 = ${r[1]}, r3 = ${r[2]}<br/>`;
     
             let x = num[0] * q[0] * r[0] + num[1] * q[1] * r[1] + num[2] * q[2] * r[2];
             let resto = x % n;
-    
-            $resolveZone.innerHTML += `X ≡ ${resto}(MOD ${n})<br/> Solucion general: X = K·${n} + ${resto}<br/>`;
+            $resolveZone.innerHTML += `Solucion particular: X ≡ ${resto}(MOD ${n})<br/>`;
+            $resolveZone.innerHTML += `Solucion general: X = K·${n} + ${resto}<br/>`;
         }
     }
 
