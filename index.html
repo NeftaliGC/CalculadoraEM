@@ -9,15 +9,20 @@
     <body>
         <header>
             <div class="header">
-                <a  href="https://www.uaemex.mx/">
-                    <img
-                        id="logo"
-                        src="https://firebasestorage.googleapis.com/v0/b/modusolver.appspot.com/o/src%2Fimg%2FLogo_de_la_UAEMex.svg?alt=media&token=87fe0885-b3dc-40a9-be86-0104bb2115ba"
-                        alt="Logo de la UAEMéx"
-                        height="100"
-                        width="100" />
-                </a>
-                <h2 id="uaemex">Universidad Autónoma <br>del Estado de México</h2>
+                <div id="uaem">
+                    <a  href="https://www.uaemex.mx/">
+                        <img
+                            id="logo"
+                            src="./src/img/Logo_de_la_UAEMex.svg"
+                            alt="Logo de la UAEMéx"
+                            height="100"
+                            width="100" />
+                    </a>
+                    <div id="uni">
+                        <h2 id="uaemex">Universidad Autónoma del Estado de México</h2>
+                        <h3 id="fI">Facultad de Ingeniería</h3>
+                    </div>
+                </div>
                 <nav id="nav">
                     <ul>
                         <li><a href="#que-es-EcMod">¿Qué son las Ecuaciones Modulares?</a></li>
@@ -28,8 +33,8 @@
         </header>
 
         <main>
-            <h1>Calculadora de Ecuaciones Modulares</h1>
-            <section>
+            <h1 id="tprincipal">Calculadora de Ecuaciones Modulares</h1>
+            <section id="formEc">
                 <form id="rEqSistemForm">
                     <input type="number" id="numero1" name="numero1" required>
                     <label for="numero1">X</label>
@@ -54,7 +59,9 @@
                     <label for="numero3">(MOD </label>
                     <input type="number" id="numero9" name="numero3" required>
                     <label for="numero3"> )</label>
-                    <button class="button" id="submit">Calcular</button>
+                    <div id="buttonSubmit">
+                        <button class="button" id="submit">Calcular</button>
+                    </div>
                 </form>
                 <button class="button" id="add">Añadir otra ecuación</button>
 
@@ -88,6 +95,7 @@
             </section>
             <section id="como-funciona">
                 <h3>¿Cómo funciona?</h3>
+                
 
             </section>
 
@@ -96,7 +104,7 @@
         <footer>
             <p>Hecho por alumnos de la facultad de ingeniería: </p>
             <p>
-                <ul>
+                <ul id="per">
                     <li><a href="">Fabián Neftaly Guia Cruz</a></li>
                     <li><a href="">Daniela Gutiérrez Pérez</a></li>
                 </ul>

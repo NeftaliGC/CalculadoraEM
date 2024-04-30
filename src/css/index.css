@@ -2,26 +2,72 @@ body {
     margin: 0;
 }
 
-header {
+.header {
     background-color: #60866D;
     color: #fff;
     padding: 10px 20px;
+    display: flex;
+}
+
+footer {
+    background-color: #60866D;
+    color: #fff;
+    padding: 10px 20px;
+    justify-content: center;
+    display: grid;
+
+}
+
+main {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    background-color: #ffffff;
+    font-size: 24px;
+}
+
+#tprincipal {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+#formEc {
+    margin: 0;
+    padding: 3rem;
+    text-align: center;
+
+}
+
+#buttonSubmit {
+    align-items: center;
+    padding: 0.5rem;
 }
 
 #logo {
     padding: auto;
     margin: 3px;
+    
+}
+
+#uaem {
+    width: max-content;
+}
+
+#uni {
+    margin: 0;
+    width: max-content;
+    text-align: left;
+    display: inline-block;
+    align-items: center;
 }
 
 #uaemex {
     margin: 1px;
-    width: max-content;
-    text-align: center;
-    display: inline-block;
+    text-align: left;
 }
 
 #nav {
     float: right;
+    width: auto;
     margin-top: 2rem;
     margin-bottom: 2rem;
     padding: 1rem;
@@ -32,12 +78,14 @@ header {
     justify-content: flex-end;
     list-style-type: none;
     margin: 0;
-    padding: 0;
 }
 
 #nav ul li {
     display: inline-block;
     margin-left: 20px;
+    padding: 10px;
+    background-color: #A59E6A;
+    border-radius: 10px;
 }
 
 #nav ul li:first-child {
@@ -46,5 +94,32 @@ header {
 
 #nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #fff;
+}
+
+#per li {
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+    background-color: #A59E6A;
+    border-radius: 10px;
+}
+
+#per {
+    padding-left: 0;
+}
+
+#per li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+footer p {
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
 }
