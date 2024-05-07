@@ -189,6 +189,20 @@ input[type="number"] {
     padding: 1rem;
 }
 
+.question {
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #A59E6A;
+    border-radius: 10px;
+}
+
+.answer {
+    display: none;
+    font-size: 18px;
+}
+
+
 @media only screen and (max-width: 1075px) {
     main {
         padding-left: 1rem;
