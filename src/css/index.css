@@ -174,11 +174,17 @@ main {
     color: #000000;
 }
 
+#per {
+    align-self: center;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
 #per li {
     text-decoration: none;
     text-align: center;
     display: inline-block;
-    margin: 0;
+    margin-bottom: 0.5rem;
     padding: 10px;
     background-color: #A59E6A;
     border-radius: 10px;
@@ -198,15 +204,16 @@ main {
     padding-left: 0;
 }
 
-#per li a {
-    text-decoration: none;
-    color: #000000;
-}
 
 #per li:hover,
 #per li:focus {
-    background-color: #3f5848; /* Color de fondo al pasar el ratón */
+    background-color: #51705c; /* Color de fondo al pasar el ratón */
     color: white; /* Color del texto al pasar el ratón */
+}
+
+#per a{
+    text-decoration: none;
+    color: #000000;
 }
 
 footer p {
