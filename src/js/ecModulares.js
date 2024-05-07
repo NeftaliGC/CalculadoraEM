@@ -5,26 +5,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const $resolveZone = $('#res')
     let numEcuaciones = 3;
 
-    $rEqModulares.addEventListener('submit', (event) => {
 
+    
+    $rEqModulares.addEventListener('submit', (event) => {
+        event.returnValue = false
         
         $resolveZone.innerHTML = '';
-        event.returnValue = false
             let nums = [];
             for (let i = 1; i <= numEcuaciones * 3; i++) {
                 nums.push(parseInt(document.getElementById(`numero${i}`).value));
             }
             console.log(nums);
             if (nums.every(num => Number.isInteger(num) && num >= 0) ) {
-                let coeficientes = [nums[0], nums[3], nums[6]];
+                let coeficientes = [];
+                let numeros = [];
+                let modulos = [];
+                // coeficientes = [nums[0], nums[3], nums[6], nums[9], nums[12];
+                for (let i = 0; i < numEcuaciones; i++) {
+                    coeficientes.push(nums[i * 3]);
+                }
                 console.log(coeficientes);
-                let numeros = [nums[1], nums[4], nums[7]];
+                // numeros = [nums[1], nums[4], nums[7], nums[10], nums[13]];
+                for (let i = 0; i < numEcuaciones; i++) {
+                    numeros.push(nums[i * 3 + 1]);
+                }
                 console.log(numeros);
-                let modulos = [nums[2], nums[5], nums[8]];
+                // modulos = [nums[2], nums[5], nums[8], nums[11], nums[14]];
+                for (let i = 0; i < numEcuaciones; i++) {
+                    modulos.push(nums[i * 3 + 2]);
+                }
                 console.log(modulos);
 
                 // Calcular el rEqModulares y mostrar el resultado
-                let EqModulares = calcREqModulares(coeficientes, numeros, modulos);
+                calcREqModulares(coeficientes, numeros, modulos);
                 //console.log(EqModulares);
                 //$resolveZone.innerHTML = `El rEqModulares de ${numero1}, ${numero2} y ${numero3} es ${3}.`;
             } else {
@@ -39,7 +52,20 @@ document.addEventListener('DOMContentLoaded', () => {
         let num = numeros;
         let mod = modulos;
 
-        if (isPrimo(modulos[0]) && isPrimo(modulos[1]) && isPrimo(modulos[2])) {
+        let allModArePrime = false;
+        let thisIsNotPrime = 0;
+
+        for (let i = 0; i < modulos.length; i++) {
+            if (isPrimo(modulos[i])) {
+                allModArePrime = true;
+            } else {
+                allModArePrime = false;
+                thisIsNotPrime = modulos[i];
+                break;
+            }
+        }
+
+        if (allModArePrime) {
             //  Teorema chino del residuo
             for(let i = 0; i < coeficientes.length; i++) {
                 if (coeficientes[i] != 1) {
@@ -68,10 +94,18 @@ document.addEventListener('DOMContentLoaded', () => {
             let n;
             let q = [];
             let r = [];
-            n = mod[0] * mod[1] * mod[2];
-            q[0] = n / mod[0];
-            q[1] = n / mod[1];
-            q[2] = n / mod[2];
+            
+            for (let i = 0; i < mod.length; i++) {
+                if (i === 0) {
+                    n = mod[i];
+                } else {
+                    n *= mod[i];
+                }
+            }
+
+            for (let i = 0; i < mod.length; i++) {
+                q[i] = n / mod[i];
+            }
 
             for (let index = 0; index < q.length; index++) {
                 let temp = calcCombLineal(q[index], mod[index]);
@@ -91,69 +125,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     r[index] = m2;
                 }
-                
-                /* este for no sirve, por que?, no se, pero no sirve 
-                Este for aunque su estructura es correcta, pero se buguea al no encontrar el valor de m
-                en la primera iteracion no hace la segunda iteracion y si intento corregir manualmente la variable de iteracion z
-                entra en un bucle infinito 
 
-                for (let z = 0; z < 2; z++) {
-                    console.log(`inicial ${z}`);
-                    if (temp[z] < mod[z]) {
-                        let m = temp[z] % mod[z];
-                        console.log(`m = ${temp[z]} % ${mod[z]} = ${m}`);
-                        if (m < 0) {
-                            m += mod[index];
-                        }
-                        if((m * q[index]) % mod[index] == 1) {
-                            console.log(`estado definitivo m = ${m}`);
-                            r[index] = m;
-                            break;
-                        }
-                        console.log(`estado transitivo m = ${m}`);
-                        console.log(`iteracion ${z}`);
-                    }
-                } */
             }
             console.log("Ya llegue aqui");
             $resolveZone.innerHTML += `Datos para el teorema chino del residuo:<br/>`;
-            $resolveZone.innerHTML += `N = ${n}<br/> Q1 = ${q[0]}, Q2 = ${q[1]}, Q3 = ${q[2]}<br/> r1 = ${r[0]}, r2 = ${r[1]}, r3 = ${r[2]}<br/>`;
+            $resolveZone.innerHTML += `N = ${n}<br/>`;
+            for (let i = 0; i < q.length; i++) {
+                $resolveZone.innerHTML += `Q${i + 1} = ${q[i]}, R${i + 1} = ${r[i]}<br/>`;
+            }
 
-            let x = num[0] * q[0] * r[0] + num[1] * q[1] * r[1] + num[2] * q[2] * r[2];
+            let x = 0;
+
+            for (let i = 0; i < cof.length; i++) {
+                x += num[i] * q[i] * r[i];
+            }
             let resto = x % n;
             
-            $resolveZone.innerHTML += `Solucion particular: X ≡ ${resto}(MOD ${n})<br/>`;
-            $resolveZone.innerHTML += `Solucion general: X = K·${n} + ${resto}<br/>`;
+            $resolveZone.innerHTML += `<strong><br/>Solucion particular: X ≡ ${resto}(MOD ${n})</strong><br/>`;
+            $resolveZone.innerHTML += `<strong>Solucion general: X = K·${n} + ${resto}</strong><br/>`;
             
             
         } else {
-            for(let i = 0; i < coeficientes.length; i++) {
-                if (coeficientes[i] != 1) {
-                    for(let j = 1; j < modulos[i]; j++) {
-                        if ((coeficientes[i] * j) % modulos[i] == 1) {
-                            cof[i] = 1;
-                            num[i] = (numeros[i] * j) % modulos[i];
-                            mod[i] = modulos[i];
-                            break;
-                        } 
-                    }
-                } else {
-                    cof[i] = 1;
-                    num[i] = numeros[i];
-                    mod[i] = modulos[i];
-                }
-            }
-            
-            console.log(cof);
-            for (let i = 0; i < cof.length; i++) {
-                $resolveZone.innerHTML += `${cof[i]}X ≡ ${num[i]} (MOD ${mod[i]})<br/>`;
-            }
-            $resolveZone.innerHTML += `N = ${n}<br/> Q1 = ${q[0]}, Q2 = ${q[1]}, Q3 = ${q[2]}<br/> r1 = ${r[0]}, r2 = ${r[1]}, r3 = ${r[2]}<br/>`;
-    
-            let x = num[0] * q[0] * r[0] + num[1] * q[1] * r[1] + num[2] * q[2] * r[2];
-            let resto = x % n;
-            $resolveZone.innerHTML += `Solucion particular: X ≡ ${resto}(MOD ${n})<br/>`;
-            $resolveZone.innerHTML += `Solucion general: X = K·${n} + ${resto}<br/>`;
+            $resolveZone.innerHTML = `Los modulos deben ser primos, ${thisIsNotPrime} no es primo.`;
         }
     }
 
@@ -191,6 +184,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function toggleRequired(element, required) {
+        if (required) {
+            element.setAttribute('required', 'required');
+        } else {
+            element.removeAttribute('required');
+        }
+    }
 
+    const $addEq = $('#addEq');
 
+    $addEq.addEventListener('click', () => {
+        if (numEcuaciones < 5) {
+            numEcuaciones++;
+            let newEq = $('#add' + numEcuaciones);
+            newEq.style.display = 'contents';
+            // Habilitar el campo requerido si está visible
+            toggleRequired(newEq.querySelector('input[type="number"]'), true);
+            if (numEcuaciones === 5) {
+                $addEq.innerHTML = 'Restablecer';
+            }
+        } else {
+            for (let i = 5; i > 3; i--) {
+                let eq = $('#add' + i);
+                eq.style.display = 'none';
+                // Deshabilitar el campo requerido si está oculto
+                toggleRequired(eq.querySelector('input[type="number"]'), false);
+            }
+            numEcuaciones = 3;
+            $addEq.innerHTML = 'Añadir otra ecuación';
+        }
+    });
 });

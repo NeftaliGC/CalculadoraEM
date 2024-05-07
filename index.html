@@ -48,92 +48,118 @@
             <h1 id="tprincipal">Calculadora de Ecuaciones Modulares</h1>
             <section id="formEc">
                 <form id="rEqSistemForm">
-                    <input type="number" id="numero1" name="numero1" min="0" value="1" required>
+                    <input type="number" id="numero1" name="numero1" min="1" value="1" max="100" required>
                     <label for="numero1">X</label>
                     <label for="numero2">≡</label>
-                    <input type="number" id="numero2" name="numero2" min="0" value="2" required>
+                    <input type="number" id="numero2" name="numero2" min="0" value="2" max="100" required>
                     <label for="numero3">(MOD </label>
-                    <input type="number" id="numero3" name="numero3" min="0" value="3" required>
+                    <input type="number" id="numero3" name="numero3" min="0" value="3" max="100" required>
                     <label for="numero3"> )</label>
                     <br/>
-                    <input type="number" id="numero4" name="numero1" min="0" value="1" required>
+                    <input type="number" id="numero4" name="numero1" min="1" value="1" max="100" required>
                     <label for="numero1">X</label>
                     <label for="numero2">≡</label>
-                    <input type="number" id="numero5" name="numero2" min="0" value="3" required>
+                    <input type="number" id="numero5" name="numero2" min="0" value="3" max="100" required>
                     <label for="numero3">(MOD </label>
-                    <input type="number" id="numero6" name="numero3" min="0" value="5" required>
+                    <input type="number" id="numero6" name="numero3" min="0" value="5" max="100" required>
                     <label for="numero3"> )</label>
                     <br/>
-                    <input type="number" id="numero7" name="numero1" min="0" value="1" required>
+                    <input type="number" id="numero7" name="numero1" min="1" value="1" max="100" required>
                     <label for="numero1">X</label>
                     <label for="numero2">≡</label>
-                    <input type="number" id="numero8" name="numero2" min="0" value="2" required>
+                    <input type="number" id="numero8" name="numero2" min="0" value="2" max="100" required>
                     <label for="numero3">(MOD </label>
-                    <input type="number" id="numero9" name="numero3" min="0" value="7" required>
+                    <input type="number" id="numero9" name="numero3" min="0" value="7" max="100" required>
                     <label for="numero3"> )</label>
+                    <br/>
+                    <div id="add4" style="display: none;">
+                        <input type="number" id="numero10" name="numero1" min="1" max="100" >
+                        <label for="numero1">X</label>
+                        <label for="numero2">≡</label>
+                        <input type="number" id="numero11" name="numero2" min="0" max="100" >
+                        <label for="numero3">(MOD </label>
+                        <input type="number" id="numero12" name="numero3" min="0" max="100" >
+                        <label for="numero3"> )</label>
+                        <br/>
+                    </div>
+                    <div id="add5" style="display: none;">
+                        <input type="number" id="numero13" name="numero1" min="1" max="100" >
+                        <label for="numero1">X</label>
+                        <label for="numero2">≡</label>
+                        <input type="number" id="numero14" name="numero2" min="0" max="100" >
+                        <label for="numero3">(MOD </label>
+                        <input type="number" id="numero15" name="numero3" min="0" max="100" >
+                        <label for="numero3"> )</label>
+                    </div>
                     <div id="buttonSubmit">
                         <button class="button" id="submit">Calcular</button>
                     </div>
                 </form>
-                <button class="button" id="add">Añadir otra ecuación</button>
+                <button class="button" id="addEq">Añadir otra ecuación</button>
 
                 <div id="res"></div>
             </section>
 
-            <section id="que-es-EcMod">
-                <h3>¿Qué son las ecuaciones modulares?</h3>
-                <p>
-                    Las Ecuaciones Modulares son igualdades algebráicas satisfechas por una variable que se encuentra en un sistema de congruencias.
-                    <br>
-                    Una congruencia es una relación de equivalencia entre dos números enteros, que se establece cuando la diferencia entre ambos es un múltiplo de un número entero fijo.
-                    <br>
-                    En otras palabras, dos números son congruentes módulo n si al dividirlos entre n, el residuo es el mismo.
-                </p>
-                <p>
-                    La congruencia se denota con el símbolo ≡ y se lee como "es congruente con".
-                    <br>
-                    Por ejemplo, 5 ≡ 2 (mod 3) significa que 5 es congruente con 2 módulo 3.
-                    <br>
-                    En este caso, 5 y 2 tienen el mismo residuo al dividirlos entre 3, que es 2.
-                    <br>
-                    Las ecuaciones modulares son útiles en matemáticas, informática y criptografía, entre otros campos.
-                    <br>
-                    Por ejemplo, en criptografía, se utilizan para encriptar y desencriptar mensajes de forma segura.
-                    <br>
-                    En informática, se utilizan para resolver problemas de programación y optimización.
-                    <br>
-                    En matemáticas, se utilizan para demostrar teoremas y resolver problemas de teoría de números.
-                </p>
-            </section>
-            <section id="como-funciona">
-                <h3>¿Cómo funciona?</h3>
-                <p>
-                    Esta Calculadora funciona en base al teorema chino del residuo, el cual establece que si tenemos un sistema de congruencias lineales, es posible encontrar una solución única módulo el producto de los módulos de las congruencias.
-                    <br>
-                    Para resolver un sistema de congruencias lineales, primero se deben encontrar las soluciones de cada congruencia por separado.
-                    <br>
-                    Luego, se deben combinar las soluciones de las congruencias para obtener la solución del sistema.
-                    <br>
-                    Para encontrar la solución de una congruencia lineal, se puede utilizar el algoritmo de Euclides extendido.
-                    <br>
-                    Este algoritmo permite encontrar el inverso multiplicativo de un número módulo otro número.
-                    <br>
-                    Una vez que se han encontrado las soluciones de las congruencias, se pueden combinar para obtener la solución del sistema.
-                    <br>
-                    <strong>Ejemplo</strong>
-                    <br>
-                    Supongamos que tenemos el siguiente sistema de congruencias:
-                    <br>
-                    x ≡ 2 (mod 3)
-                    <br>
-                    x ≡ 3 (mod 5)
-                    <br>
-                    x ≡ 2 (mod 7)
-                    <br>
-                    
-                </p>
-                
-            </section>
+            <section class="faq">
+                <div id="que-es-EcMod" class="question">
+                    <h3>¿Qué son las ecuaciones modulares?</h3>
+                    <div class="answer">
+                        <p>
+                            Las Ecuaciones Modulares son igualdades algebráicas satisfechas por una variable que se encuentra en un sistema de congruencias.
+                            <br>
+                            Una congruencia es una relación de equivalencia entre dos números enteros, que se establece cuando la diferencia entre ambos es un múltiplo de un número entero fijo.
+                            <br>
+                            En otras palabras, dos números son congruentes módulo n si al dividirlos entre n, el residuo es el mismo.
+                        </p>
+                        <p>
+                            La congruencia se denota con el símbolo ≡ y se lee como "es congruente con".
+                            <br>
+                            Por ejemplo, 5 ≡ 2 (mod 3) significa que 5 es congruente con 2 módulo 3.
+                            <br>
+                            En este caso, 5 y 2 tienen el mismo residuo al dividirlos entre 3, que es 2.
+                            <br>
+                            Las ecuaciones modulares son útiles en matemáticas, informática y criptografía, entre otros campos.
+                            <br>
+                            Por ejemplo, en criptografía, se utilizan para encriptar y desencriptar mensajes de forma segura.
+                            <br>
+                            En informática, se utilizan para resolver problemas de programación y optimización.
+                            <br>
+                            En matemáticas, se utilizan para demostrar teoremas y resolver problemas de teoría de números.
+                        </p>
+                    </div>
+                </div>
+                <div id="como-funciona" class="question">
+                    <h3>¿Cómo funciona?</h3>
+                    <div class="answer">
+                        <p>
+                            Esta Calculadora funciona en base al teorema chino del residuo, el cual establece que si tenemos un sistema de congruencias lineales, es posible encontrar una solución única módulo el producto de los módulos de las congruencias.
+                            <br>
+                            Para resolver un sistema de congruencias lineales, primero se deben encontrar las soluciones de cada congruencia por separado.
+                            <br>
+                            Luego, se deben combinar las soluciones de las congruencias para obtener la solución del sistema.
+                            <br>
+                            Para encontrar la solución de una congruencia lineal, se puede utilizar el algoritmo de Euclides extendido.
+                            <br>
+                            Este algoritmo permite encontrar el inverso multiplicativo de un número módulo otro número.
+                            <br>
+                            Una vez que se han encontrado las soluciones de las congruencias, se pueden combinar para obtener la solución del sistema.
+                            <br>
+                            <strong>Ejemplo</strong>
+                            <br>
+                            Supongamos que tenemos el siguiente sistema de congruencias:
+                            <br>
+                            x ≡ 2 (mod 3)
+                            <br>
+                            x ≡ 3 (mod 5)
+                            <br>
+                            x ≡ 2 (mod 7)
+                            <br>
+                            
+                        </p>
+                    </div>
+                </div>
+                <!-- Agrega más preguntas y respuestas aquí -->
+            </section>    
 
         </main>
 
@@ -149,5 +175,6 @@
 
 
         <script src="./src/js/ecModulares.js"></script>
+        <script src="./src/js/functions.js"></script>
     </body>
 </html>
