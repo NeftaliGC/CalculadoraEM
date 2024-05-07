@@ -3,15 +3,15 @@ body {
 }
 
 .header {
-    background-color: #60866D;
-    color: #fff;
+    background-color: #415a4a;
+    color: #ffffff;
     padding: 10px 20px;
     display: flex;
     justify-content: center;
 }
 
 footer {
-    background-color: #60866D;
+    background-color: #415a4a;
     color: #fff;
     padding: 10px 20px;
     justify-content: center;
@@ -29,6 +29,7 @@ main {
 #tprincipal {
     text-align: center;
     margin-top: 0.5rem;
+    font-size: 1.2em;
 }
 
 #formEc {
@@ -75,6 +76,27 @@ main {
     display: flex;
 }
 
+.button {
+    background-color: #A59E6A; /* Color de fondo */
+    color: #000; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Centrar texto */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave al cambiar de color */
+    font-family: 'Times New Roman', Times, serif; /* Tipo de fuente */
+}
+
+.button:hover,
+.button:focus {
+    background-color: #60866D; /* Color de fondo al pasar el ratón */
+    color: white; /* Color del texto al pasar el ratón */
+}
+
 #uaem {
     width: max-content;
     display: inline-flex;
@@ -95,6 +117,7 @@ main {
     width: max-content;
     text-align: left;
     align-items: center;
+    font-size: 12px;
 }
 
 #uaemex {
@@ -131,9 +154,15 @@ main {
     margin-left: 0;
 }
 
+#nav ul li:hover,
+#nav ul li:focus {
+    background-color: #51705c; /* Color de fondo al pasar el ratón */
+    color: white; /* Color del texto al pasar el ratón */
+}
+
 #nav ul a {
     text-decoration: none;
-    color: #fff;
+    color: #000000;
 }
 
 #per li {
@@ -162,7 +191,13 @@ main {
 
 #per li a {
     text-decoration: none;
-    color: #fff;
+    color: #000000;
+}
+
+#per li:hover,
+#per li:focus {
+    background-color: #3f5848; /* Color de fondo al pasar el ratón */
+    color: white; /* Color del texto al pasar el ratón */
 }
 
 footer p {
@@ -170,7 +205,10 @@ footer p {
     text-align: center;
     margin: 0;
     padding: 0;
-
+    font-size: 18px;
+    font-weight: 500;
+    font-style: oblique;
+    color: #ffffff;
 }
 
 input[type="number"] {
@@ -195,6 +233,14 @@ input[type="number"] {
     padding: 10px;
     background-color: #A59E6A;
     border-radius: 10px;
+    font-size: 18px;
+}
+
+.question:hover,
+.question:focus {
+    cursor: default; /* Cambiar cursor al pasar por encima */
+    background-color: #3f5848; /* Color de fondo al pasar el ratón */
+    color: white; /* Color del texto al pasar el ratón */
 }
 
 .answer {
