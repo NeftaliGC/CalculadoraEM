@@ -16,33 +16,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 nums.push(parseInt(document.getElementById(`numero${i}`).value));
             }
             console.log(nums);
-            if (nums.every(num => Number.isInteger(num) && num >= 0) ) {
-                let coeficientes = [];
-                let numeros = [];
-                let modulos = [];
-                // coeficientes = [nums[0], nums[3], nums[6], nums[9], nums[12];
-                for (let i = 0; i < numEcuaciones; i++) {
-                    coeficientes.push(nums[i * 3]);
-                }
-                console.log(coeficientes);
-                // numeros = [nums[1], nums[4], nums[7], nums[10], nums[13]];
-                for (let i = 0; i < numEcuaciones; i++) {
-                    numeros.push(nums[i * 3 + 1]);
-                }
-                console.log(numeros);
-                // modulos = [nums[2], nums[5], nums[8], nums[11], nums[14]];
-                for (let i = 0; i < numEcuaciones; i++) {
-                    modulos.push(nums[i * 3 + 2]);
-                }
-                console.log(modulos);
 
-                // Calcular el rEqModulares y mostrar el resultado
-                calcREqModulares(coeficientes, numeros, modulos);
-                //console.log(EqModulares);
-                //$resolveZone.innerHTML = `El rEqModulares de ${numero1}, ${numero2} y ${numero3} es ${3}.`;
-            } else {
+            if(!nums.every(num => Number.isInteger(num) && num >= 0)) {
                 $resolveZone.innerHTML = 'Ingresa números enteros positivos válidos.';
+                return;
             }
+
+            let coeficientes = [];
+            let numeros = [];
+            let modulos = [];
+            // coeficientes = [nums[0], nums[3], nums[6], nums[9], nums[12];
+            for (let i = 0; i < numEcuaciones; i++) {
+                coeficientes.push(nums[i * 3]);
+            }
+            console.log(coeficientes);
+            // numeros = [nums[1], nums[4], nums[7], nums[10], nums[13]];
+            for (let i = 0; i < numEcuaciones; i++) {
+                numeros.push(nums[i * 3 + 1]);
+            }
+            console.log(numeros);
+            // modulos = [nums[2], nums[5], nums[8], nums[11], nums[14]];
+            for (let i = 0; i < numEcuaciones; i++) {
+                modulos.push(nums[i * 3 + 2]);
+            }
+            console.log(modulos);
+                
+            // Calcular el rEqModulares y mostrar el resultado
+            calcREqModulares(coeficientes, numeros, modulos);
 
     });
 
@@ -53,101 +53,109 @@ document.addEventListener('DOMContentLoaded', () => {
         let mod = modulos;
 
         let allModArePrime = false;
+        // Comprobar que todos los modulos sean diferentes
+        let allModeAreDiff = modulos.every((val, i, arr) => arr.indexOf(val) === i);
         let thisIsNotPrime = 0;
 
+        if (!allModeAreDiff) {
+            $resolveZone.innerHTML = `Los modulos deben ser diferentes. `;
+            return;
+        }
+
         for (let i = 0; i < modulos.length; i++) {
-            if (isPrimo(modulos[i])) {
+            if (isPrimo(modulos[i]) ){
                 allModArePrime = true;
+                allModeAreDiff = true;
             } else {
                 allModArePrime = false;
+                allModeAreDiff = false;
                 thisIsNotPrime = modulos[i];
                 break;
             }
         }
 
-        if (allModArePrime) {
-            //  Teorema chino del residuo
-            for(let i = 0; i < coeficientes.length; i++) {
-                if (coeficientes[i] != 1) {
-                    for(let j = 1; j < modulos[i]; j++) {
-                        if ((coeficientes[i] * j) % modulos[i] == 1) {
-                            cof[i] = 1;
-                            num[i] = (numeros[i] * j) % modulos[i];
-                            mod[i] = modulos[i];
-                            break;
-                        } 
-                    }
-                } else {
-                    cof[i] = 1;
-                    num[i] = numeros[i];
-                    mod[i] = modulos[i];
-                }
-            }
-            console.log("Coeficientes:" + cof);
-            console.log("Numeros:" + num);
-            console.log("Modulos:" + mod);
-            $resolveZone.innerHTML += `Ecuaciones Simplificadas:<br/>`;
-            for (let i = 0; i < cof.length; i++) {
-                $resolveZone.innerHTML += `${cof[i]}X ≡ ${num[i]} (MOD ${mod[i]})<br/>`;
-            }
-
-            let n;
-            let q = [];
-            let r = [];
-            
-            for (let i = 0; i < mod.length; i++) {
-                if (i === 0) {
-                    n = mod[i];
-                } else {
-                    n *= mod[i];
-                }
-            }
-
-            for (let i = 0; i < mod.length; i++) {
-                q[i] = n / mod[i];
-            }
-
-            for (let index = 0; index < q.length; index++) {
-                let temp = calcCombLineal(q[index], mod[index]);
-
-                let m1 = temp[0] % mod[index];
-                let m2 = temp[1] % mod[index];
-
-                if (m1 < 0) {
-                    m1 += mod[index];
-                }
-                if (m2 < 0) {
-                    m2 += mod[index];
-                }
-
-                if((m1 * q[index]) % mod[index] == 1) {
-                    r[index] = m1;
-                } else {
-                    r[index] = m2;
-                }
-
-            }
-            console.log("Ya llegue aqui");
-            $resolveZone.innerHTML += `Datos para el teorema chino del residuo:<br/>`;
-            $resolveZone.innerHTML += `N = ${n}<br/>`;
-            for (let i = 0; i < q.length; i++) {
-                $resolveZone.innerHTML += `Q${i + 1} = ${q[i]}, R${i + 1} = ${r[i]}<br/>`;
-            }
-
-            let x = 0;
-
-            for (let i = 0; i < cof.length; i++) {
-                x += num[i] * q[i] * r[i];
-            }
-            let resto = x % n;
-            
-            $resolveZone.innerHTML += `<strong><br/>Solucion particular: X ≡ ${resto}(MOD ${n})</strong><br/>`;
-            $resolveZone.innerHTML += `<strong>Solucion general: X = K·${n} + ${resto}</strong><br/>`;
-            
-            
-        } else {
+        if(!allModArePrime) {
             $resolveZone.innerHTML = `Los modulos deben ser primos, ${thisIsNotPrime} no es primo.`;
+            return;
         }
+
+        //  Teorema chino del residuo
+        for(let i = 0; i < coeficientes.length; i++) {
+            if (coeficientes[i] != 1) {
+                for(let j = 1; j < modulos[i]; j++) {
+                    if ((coeficientes[i] * j) % modulos[i] == 1) {
+                        cof[i] = 1;
+                        num[i] = (numeros[i] * j) % modulos[i];
+                        mod[i] = modulos[i];
+                        break;
+                    } 
+                }
+            } else {
+                cof[i] = 1;
+                num[i] = numeros[i];
+                mod[i] = modulos[i];
+            }
+        }
+        console.log("Coeficientes:" + cof);
+        console.log("Numeros:" + num);
+        console.log("Modulos:" + mod);
+        $resolveZone.innerHTML += `Ecuaciones Simplificadas:<br/>`;
+        for (let i = 0; i < cof.length; i++) {
+            $resolveZone.innerHTML += `${cof[i]}X ≡ ${num[i]} (MOD ${mod[i]})<br/>`;
+        }
+
+        let n;
+        let q = [];
+        let r = [];
+            
+        for (let i = 0; i < mod.length; i++) {
+            if (i === 0) {
+                n = mod[i];
+            } else {
+                n *= mod[i];
+            }
+        }
+
+        for (let i = 0; i < mod.length; i++) {
+            q[i] = n / mod[i];
+        }
+
+        for (let index = 0; index < q.length; index++) {
+            let temp = calcCombLineal(q[index], mod[index]);
+
+            let m1 = temp[0] % mod[index];
+            let m2 = temp[1] % mod[index];
+
+            if (m1 < 0) {
+                m1 += mod[index];
+            }
+            if (m2 < 0) {
+                m2 += mod[index];
+            }
+
+            if((m1 * q[index]) % mod[index] == 1) {
+                r[index] = m1;
+            } else {
+                r[index] = m2;
+            }
+
+        }
+
+        $resolveZone.innerHTML += `Datos para el teorema chino del residuo:<br/>`;
+        $resolveZone.innerHTML += `N = ${n}<br/>`;
+        for (let i = 0; i < q.length; i++) {
+            $resolveZone.innerHTML += `Q${i + 1} = ${q[i]}, R${i + 1} = ${r[i]}<br/>`;
+        }
+
+        let x = 0;
+
+        for (let i = 0; i < cof.length; i++) {
+            x += num[i] * q[i] * r[i];
+        }
+        let resto = x % n;
+            
+        $resolveZone.innerHTML += `<strong><br/>Solucion particular: X ≡ ${resto}(MOD ${n})</strong><br/>`;
+        $resolveZone.innerHTML += `<strong>Solucion general: X = K·${n} + ${resto}</strong><br/>`;
     }
 
     function isPrimo(numero) {

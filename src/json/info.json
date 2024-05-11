@@ -1,0 +1,24 @@
+{
+    "creadores": [
+        {
+            "Nombres": "Daniela",
+            "Apellidos": "Gutiérrez Pérez",
+            "info": {
+                "Ingenieria": "Computación",
+                "Semestre-Inicio": "2022-B",
+                "Presentacion": "Soy una apasionada de las palabras, me gusta leer y escribir. Disfruto de ayudar a las personas con lo que más se les dificulte. <br/>Me encantan los números y la aplicación de cada fórmula que conozco.",
+                "emojis": "🌞🩷🦋"
+            }
+        },
+        {
+            "Nombres": "Fabián Neftali",
+            "Apellidos": "Guía Cruz",
+            "info": {
+                "Ingenieria": "Computación",
+                "Semestre-Inicio": "2022-B",
+                "Presentacion": "Aprendi a programar en la preparatoria, me gusta crear herramientas que resulten utilies a las personas. <br/>Me gustan los gatos, las plantas y jugar videojuegos. Me gusta la fotografia y pasar tiempo al aire libre, Aunque a veces no lo hago tan seguido. <br/>Me gusta ayudar a los demas y tambien enseñar programación.",
+                "emojis": "💻🌱🪴🐱🎄🎮"
+            }
+        }
+    ]
+}
