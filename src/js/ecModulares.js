@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(nums);
 
             if(!nums.every(num => Number.isInteger(num) && num >= 0)) {
-                $resolveZone.innerHTML = 'Ingresa números enteros positivos válidos.';
+                $resolveZone.innerHTML = 'Ingresa números enteros positivos válidos. Intentalo de nuevo.';
                 return;
             }
 
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let thisIsNotPrime = 0;
 
         if (!allModeAreDiff) {
-            $resolveZone.innerHTML = `Los modulos deben ser diferentes. `;
+            $resolveZone.innerHTML = `<b style="color: #8f0000;">Los modulos deben ser diferentes. <br/>Intentalo de nuevo.</b>`;
             return;
         }
 
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if(!allModArePrime) {
-            $resolveZone.innerHTML = `Los modulos deben ser primos, ${thisIsNotPrime} no es primo.`;
+            $resolveZone.innerHTML = `<b style="color: #8f0000;">Todos los modulos deben ser numeros primos <br/> El modulo '${thisIsNotPrime}' no es primo. <br/>Intentalo de nuevo.</b>`;
             return;
         }
 
