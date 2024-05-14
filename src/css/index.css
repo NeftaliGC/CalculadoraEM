@@ -69,12 +69,14 @@ main {
 #fi a img {
     margin: auto;
     background-color: #fff;
+    margin-left: 0.5rem;
+    border-radius: 5px;
     height: 100%;
     width: 100%;
 }
 
 #logo {
-    padding: auto;
+    padding-right: 1rem;
     margin: auto;
 }
 

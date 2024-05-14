@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(nums);
 
             if(!nums.every(num => Number.isInteger(num) && num >= 0)) {
-                $resolveZone.innerHTML = 'Ingresa números enteros positivos válidos. Intentalo de nuevo.';
+                $resolveZone.innerHTML = 'Ingresa números enteros positivos válidos. Inténtalo de nuevo.';
                 return;
             }
 
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let thisIsNotPrime = 0;
 
         if (!allModeAreDiff) {
-            $resolveZone.innerHTML = `<b style="color: #8f0000;">Los modulos deben ser diferentes. <br/>Intentalo de nuevo.</b>`;
+            $resolveZone.innerHTML = `<b style="color: #8f0000;">Los modulos deben ser diferentes. <br/>Inténtalo de nuevo.</b>`;
             return;
         }
 
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if(!allModArePrime) {
-            $resolveZone.innerHTML = `<b style="color: #8f0000;">Todos los modulos deben ser numeros primos <br/> El modulo '${thisIsNotPrime}' no es primo. <br/>Intentalo de nuevo.</b>`;
+            $resolveZone.innerHTML = `<b style="color: #8f0000;">Todos los modulos deben ser números primos <br/> El modulo '${thisIsNotPrime}' no es primo. <br/>Inténtalo de nuevo.</b>`;
             return;
         }
 
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         console.log("Coeficientes:" + cof);
-        console.log("Numeros:" + num);
+        console.log("Números:" + num);
         console.log("Modulos:" + mod);
         $resolveZone.innerHTML += `Ecuaciones Simplificadas:<br/>`;
         for (let i = 0; i < cof.length; i++) {
@@ -154,8 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         let resto = x % n;
             
-        $resolveZone.innerHTML += `<strong><br/>Solucion particular: X ≡ ${resto}(MOD ${n})</strong><br/>`;
-        $resolveZone.innerHTML += `<strong>Solucion general: X = K·${n} + ${resto}</strong><br/>`;
+        $resolveZone.innerHTML += `<strong><br/>Solución particular: X ≡ ${resto}(MOD ${n})</strong><br/>`;
+        $resolveZone.innerHTML += `<strong>Solución general: X = K·${n} + ${resto}</strong><br/>`;
     }
 
     function isPrimo(numero) {
