@@ -28,11 +28,11 @@
                 </div>
                 <nav id="nav">
                     <ul>
-                        <a href="#que-es-EcMod">
-                            <li aria-label="¿Qué son las ecuaciones modulares? link">¿Qué son las Ecuaciones Modulares?</li>
+                        <a href="#que-es-EcMod" >
+                            <li aria-label="¿Qué son las ecuaciones modulares? link" id="queson">¿Qué son las Ecuaciones Modulares?</li>
                         </a>
-                        <a href="#como-funciona">
-                            <li>¿Cómo funciona?</li>
+                        <a href="#como-funciona" >
+                            <li id="comfunciona">¿Cómo funciona?</li>
                         </a>
                     </ul>
                 </nav>
@@ -51,25 +51,25 @@
                     <input type="number" id="numero1" name="numero1" min="1" value="1" max="100" required>
                     <label for="numero1">X</label>
                     <label for="numero2">≡</label>
-                    <input type="number" id="numero2" name="numero2" min="0" value="2" max="100" required>
+                    <input type="number" id="numero2" name="numero2" min="0" value="1" max="100" required>
                     <label for="numero3">(MOD </label>
                     <input type="number" id="numero3" name="numero3" min="2" value="3" max="101" required>
                     <label for="numero3"> )</label>
                     <br/>
-                    <input type="number" id="numero4" name="numero1" min="1" value="1" max="100" required>
+                    <input type="number" id="numero4" name="numero1" min="1" value="5" max="100" required>
                     <label for="numero1">X</label>
                     <label for="numero2">≡</label>
-                    <input type="number" id="numero5" name="numero2" min="0" value="3" max="100" required>
+                    <input type="number" id="numero5" name="numero2" min="0" value="0" max="100" required>
                     <label for="numero3">(MOD </label>
-                    <input type="number" id="numero6" name="numero3" min="2" value="5" max="101" required>
+                    <input type="number" id="numero6" name="numero3" min="2" value="7" max="101" required>
                     <label for="numero3"> )</label>
                     <br/>
-                    <input type="number" id="numero7" name="numero1" min="1" value="1" max="100" required>
+                    <input type="number" id="numero7" name="numero1" min="1" value="6" max="100" required>
                     <label for="numero1">X</label>
                     <label for="numero2">≡</label>
-                    <input type="number" id="numero8" name="numero2" min="0" value="2" max="100" required>
+                    <input type="number" id="numero8" name="numero2" min="0" value="8" max="100" required>
                     <label for="numero3">(MOD </label>
-                    <input type="number" id="numero9" name="numero3" min="2" value="7" max="101" required>
+                    <input type="number" id="numero9" name="numero3" min="2" value="13" max="101" required>
                     <label for="numero3"> )</label>
                     <br/>
                     <div id="add4" style="display: none;">
@@ -148,14 +148,57 @@
                             <br>
                             Supongamos que tenemos el siguiente sistema de congruencias:
                             <br>
-                            x ≡ 2 (mod 3)
+                            x ≡ 1 (mod 3)
                             <br>
-                            x ≡ 3 (mod 5)
+                            5x ≡ 0 (mod 7)
                             <br>
-                            x ≡ 2 (mod 7)
+                            6x ≡ 8 (mod 13)
                             <br>
+                            Como paso de inicio, se debe verificar que los modulos correspondan a números primos entre sí. 
+                            <br>
+                            Posteriormente, se simplifican las ecuaciones hasta que los coeficientes de x sean 1:
+                            <br>
+                            x ≡ 1 (mod 3)
+                            <br>
+                            x ≡ 0 (mod 7)
+                            <br>
+                            x ≡ 10 (mod 13)
+                            <br>
+                            Luego, se obtiene el valor de n multiplicando los modulos:
+                            <br>
+                            n = 3 * 7 * 13 = 273
+                            <br>
+                            Siguiente se obtienen q<sub>1</sub>, q<sub>2</sub> y q<sub>3</sub> dividiendo n entre los modulos de las congruencias:
+                            <br>
+                            q<sub>1</sub> = 273 / 3 = 91
+                            <br>
+                            q<sub>2</sub> = 273 / 7 = 39
+                            <br>
+                            q<sub>3</sub> = 273 / 13 = 21
+                            <br>
+                            En seguida, se obtienen los inversos multiplicativos. Iniciamos usando la fórmula de combinación lineal, tomando el módulo de los resultados y ajustándolos si son negativos y verifica cuál de estos valores es el inverso multiplicativo usando la fórmula:
+                            <br>
+                            m * q modulo(mod) ≡ 1
+                            <br>
+                            en este caso serían: 1, 2, 5 respectivamente.
+                            <br>
+                            Una vez obtenidos los inversos multiplicativos, se multiplican por los q's y los residuos de cada congruencia y se suman para obtener el valor de x:
+                            <br>
+                            x = (1 * 91 * 1) + (0 * 39 * 0) + (10 * 21 * 8) modulo 273
+                            <br>
+                            x ≡ 49 modulo 273
+                            <br>
+                            x = 273k + 49
+                            <br>
+                            La solución dependerá del rango estimado, es decir, puede variar a ciertas condiciones como que debe ser mayor a 100, etc. Esto se obtiene sustituyendo k por cualquier número natural:
+                            <br>
+                            x = 273(0) + 49
+                            <br>
+                            x = 49 (como solución mínima posible)
                             
-                        </p>
+                            
+
+                            
                     </div>
                 </div>
                 <!-- Agrega más preguntas y respuestas aquí -->

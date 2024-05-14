@@ -150,6 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let x = 0;
 
         for (let i = 0; i < cof.length; i++) {
+            console.log(num[i], q[i], r[i]);
+            console.log(num[i] * q[i] * r[i]);
             x += num[i] * q[i] * r[i];
         }
         let resto = x % n;

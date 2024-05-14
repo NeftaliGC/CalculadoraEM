@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const $emoji = $('#emoji');
     const $presentacion = $('#presentacion');
     const $ingenieria = $('#ing');
+    const $foto = $('#ftp');
 
     fetch("../json/info.json")
         .then(response => response.json())
@@ -23,10 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log("Si")
                 c = data.creadores[0];
                 console.log(c)
+                $foto.src = JSON.stringify(c.info.foto).replace(/^"|"$/g, '');
             } else if(creador == 'f'){
                 console.log("Si")
                 c = data.creadores[1];
                 console.log(c)
+                $foto.src = JSON.stringify(c.info.foto).replace(/^"|"$/g, '');
             }
             console.log(JSON.stringify(c.Nombres));
             let inicio = new Date( JSON.stringify(c.info.SemestreInicio).replace(/^"|"$/g, '').split("-") );

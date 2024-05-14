@@ -143,6 +143,12 @@ main {
     color: #000000;
 }
 
+#per {
+    align-self: center;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
 #per li {
     text-decoration: none;
     text-align: center;
@@ -220,6 +226,16 @@ footer p {
     text-align: left;
     font-size: 1.2rem;
     margin: 0;
+}
+
+#foto {
+    text-align: center;
+}
+
+#ftp {
+    width: 90%;
+    height: 90%;
+    border-radius: 5px;
 }
 
 @media only screen and (max-width: 1075px) {
