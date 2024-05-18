@@ -185,6 +185,30 @@ main {
     color: #000000;
 }
 
+#return {
+    align-self: center;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#return {
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    padding: 10px;
+    background-color: #A59E6A;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #000000;
+    display: none;
+}
+
+#return:hover,
+#return:focus {
+    background-color: #51705c; /* Color de fondo al pasar el ratón */
+    color: white; /* Color del texto al pasar el ratón */
+}
+
 footer p {
     justify-content: center;
     text-align: center;
@@ -288,5 +312,9 @@ footer p {
         box-sizing: border-box;
         border: 2px solid #ccc;
         border-radius: 4px;
+    }
+
+    #return {
+        display: inline-block;
     }
 }
