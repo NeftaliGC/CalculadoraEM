@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 $foto.src = JSON.stringify(c.info.foto).replace(/^"|"$/g, '');
             }
             console.log(JSON.stringify(c.Nombres));
-            let inicio = new Date( JSON.stringify(c.info.SemestreInicio).replace(/^"|"$/g, '').split("-") );
+            let inicio = new Date( JSON.stringify(c.info.SemestreInicio).replace(/^"|"$/g, ''));
             $preguntaTitulo.innerHTML += JSON.stringify(c.Nombres).replace(/^"|"$/g, '') + "?";
             $nombreCompleto.innerHTML += JSON.stringify(c.Nombres + " " + c.Apellidos).replace(/^"|"$/g, '');
             $emoji.innerHTML += JSON.stringify(c.info.emojis);
@@ -48,5 +48,6 @@ function calcularSemestres(fechaEspecifica) {
     const fechaActual = new Date();
     const mesesDiferencia = (fechaActual.getFullYear() - fechaEspecifica.getFullYear()) * 12 + fechaActual.getMonth() - fechaEspecifica.getMonth();
     console.log(mesesDiferencia / 6);
+
     return Math.round(mesesDiferencia / 6);
 }
