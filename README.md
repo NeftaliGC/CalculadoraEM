@@ -1,5 +1,5 @@
 # Calculadora de Ecuaciones Modulares
-
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
 Calculadora de sistemas de ecuaciones modulares por el teorema chino del residuo en JavaScript
 
 ## Contenido
@@ -8,9 +8,9 @@ Calculadora de sistemas de ecuaciones modulares por el teorema chino del residuo
 3. [Autores](#autores)
 
 ## Uso
-Este proyecto al ser una pagina web estatica no requiere de ningun tipo de instalación ni requerimiento. Puede descargar el codigo y abrir el archivo index.html
+Este proyecto al ser una página web estática no requiere de ningun tipo de instalación ni requerimiento. Puede descargar el código y abrir el archivo index.html
 
-O tambien puede disfrutar del proyecto en la pagina de su publicación, [aqui.](https://neftaligc.github.io/ModuSolver/)
+O también puede disfrutar del proyecto en la página de su publicación, [aqui.](https://neftaligc.github.io/ModuSolver/)
 
 ## Estructura-del-proyecto
 
