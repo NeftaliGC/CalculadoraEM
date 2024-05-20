@@ -13,6 +13,8 @@ Este proyecto al ser una pagina web estatica no requiere de ningun tipo de insta
 O tambien puede disfrutar del proyecto en la pagina de su publicación, [aqui.](https://neftaligc.github.io/ModuSolver/)
 
 ## Estructura-del-proyecto
+
+```
 project-root/
 ├── index.html      # Página principal de la calculadora
 ├── src             # Carpeta de recursos
@@ -29,6 +31,7 @@ project-root/
 │   ├── pages       # Páginas adicionales del proyecto
 │   │   ├── info.html    # Página de información
 └── README.md       # Archivo README con información del proyecto
+```
 
 ## Autores
 > Hecho por alumnos de la facultad de Ingenieria de UAEMex
